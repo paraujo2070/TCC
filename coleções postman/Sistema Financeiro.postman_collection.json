@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "f61835e6-4076-470e-a66a-0410ce086b43",
+		"name": "Sistema Financeiro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"email\": \"paraujo20700@gmail.com\",\n\t\t\"senha\": \"sistema8\",\n\t\t\"nome\": \"Pedro Antonio Araújo\",\n\t\t\"username\": \"paraujo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios/criar/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"criar",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar informações",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"paraujo20700@gmail.com\",\n\t\"senha\": \"sistema8\",\n\t\"datadenascimento\": \"21/01/1998\",\n    \"estadocivil\": \"solteiro\",\n    \"expectativadevida\": \"90\",\n    \"nomedoconjuge\": \"não informado\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios/inform/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"inform",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecuperarSenha",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"paraujo20700@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios/recuperar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"recuperar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Senha",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"paraujo20700@gmail.com\",\n\t\"senha\": \"sistema8\",\n\t\"novasenha\": \"paraujo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios/alterar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"alterar"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

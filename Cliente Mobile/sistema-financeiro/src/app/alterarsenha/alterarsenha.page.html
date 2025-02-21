@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs" (click)="pegarDadosOnline()"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="AlterarSenhaTitulo">Alterar Senha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <h1 text-center>
+        <img id="AlterarSenhaImagem" src="../../assets/senha.jpg" class="icon-7em" style="display:inline-block" />
+    
+      </h1>
+
+  <ion-grid>
+
+    <form [formGroup]="authform" (submit)="onSubmit()">
+
+      <ion-item>
+        <ion-icon name="md-lock" color="primary" slot="start"></ion-icon>
+      <ion-label position="floating">Senha Atual</ion-label>
+      <ion-input formControlName="senhaatual" type='password'></ion-input>
+    </ion-item>
+
+      <ion-item>
+          <ion-icon name="md-lock" color="primary" slot="start"></ion-icon>
+        <ion-label position="floating">Nova Senha</ion-label>
+        <ion-input formControlName="novasenha" type='password'></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="md-lock" color="primary" slot="start"></ion-icon>
+        <ion-label position="floating">Repita a Senha</ion-label>
+        <ion-input formControlName="confirmarsenha" type='password'></ion-input>
+      </ion-item>
+
+
+      <ion-button expand="block" type="submit" [disabled]="authform.invalid">ALterar</ion-button>
+
+    </form>
+
+  </ion-grid>
+
+</ion-content>

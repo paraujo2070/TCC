@@ -1,0 +1,314 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Informaçõs adicionais </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="authform" (submit)="onSubmit()">
+      <ion-item-group>
+        <ion-card>
+          <ion-item-divider color="primary">
+            <ion-label>Dados Pessoais</ion-label>
+          </ion-item-divider>
+          
+          
+          <ion-item>
+            <ion-label position="floating">Data de nascimento</ion-label>
+            <ion-datetime formControlName="datadenascimento" displayFormat="DD/MM/YYYY" min="1922-03-14" value="2002-09-23T15:03:46.789">
+            </ion-datetime>
+          </ion-item>
+          
+          
+          <ion-radio-group formControlName="estadocivil" (click)="this.alterarEstadoCivil()">
+            <ion-list-header>
+              <ion-label>Estado Civil</ion-label>
+            </ion-list-header>
+            
+            <ion-item>
+              <ion-label>Solteiro</ion-label>
+              <ion-radio  slot="start" value="Solteiro" name="Solteiro" checked ></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>Casado</ion-label>
+              <ion-radio  slot="start" value="Casado" name="Casado"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>Separado</ion-label>
+              <ion-radio  slot="start" value="Separado" name="Separado"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>Divorciado</ion-label>
+              <ion-radio  slot="start" value="Divorciado" name="Divorciado"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>Viúvo</ion-label>
+              <ion-radio  slot="start" value="Viúvo" name="Viúvo"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          
+          
+          <ion-item>
+            <ion-label position="floating">Expectativa de Vida em Anos </ion-label>
+            <ion-input formControlName="expectativadevida" type="number"></ion-input>
+          </ion-item>
+          
+        </ion-card>
+        <ion-card>
+          <ion-item-divider color="primary">
+            <ion-label>Dados do Cônjuge</ion-label>
+          </ion-item-divider>
+          
+          <ion-item *ngIf="this.estadocivil == 'Casado'">
+            <ion-label position="floating">Nome do Cônjuge</ion-label>
+            <ion-input formControlName="nomedoconjuge"></ion-input>
+          </ion-item>
+          
+          <ion-item *ngIf="estadocivil == 'Casado'">
+            <ion-label position="floating">Data de Nascimento do Cônjuge</ion-label>
+            <ion-datetime formControlName="datadenascimentodoconjuge" displayFormat="DD/MM/YYYY" min="1922-03-14" value="2002-09-23T15:03:46.789">
+            </ion-datetime>
+          </ion-item>
+          
+          <ion-item *ngIf="estadocivil == 'Casado'">
+            <ion-label position="floating">Expectativa de Vida do Cônjuge em Anos</ion-label>
+            <ion-input formControlName="expectativadevidadoconjuge" type="number"></ion-input>
+          </ion-item>
+          
+          <ion-radio-group formControlName="temfilhos" (click)="this.alterarTemFilhos()">
+      <ion-list-header>
+        <ion-label>Tem Filhos?</ion-label>
+      </ion-list-header>
+      
+      <ion-item>
+        <ion-label>Sim</ion-label>
+        <ion-radio  slot="start" value="sim" name="sim" checked></ion-radio>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Não</ion-label>
+        <ion-radio  slot="start" value="nao" name="nao"></ion-radio>
+      </ion-item>
+      
+    </ion-radio-group>
+    
+    <ion-item *ngIf="temfilhos == 'sim'">
+      <ion-label position="floating">Quantos</ion-label>
+      <ion-input formControlName="quantos"type="number"></ion-input>
+    </ion-item>
+  </ion-card>
+  </ion-item-group>
+  
+  <ion-item-group>
+    <ion-card>
+      <ion-item-divider color="primary">
+        <ion-label>Dados Profissionais</ion-label>
+      </ion-item-divider>
+      
+      <ion-item>
+        <ion-label position="floating">Profissão atual</ion-label>
+        <ion-input formControlName="profissaoatual" type="text"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Remuneração líquida atual</ion-label>
+        <ion-input formControlName="remuneracaoliquida" type="number"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-textarea formControlName="outrasfontesderenda" rows="6" cols="20" placeholder="Outras Fontes de Renda"></ion-textarea>
+      </ion-item>
+      
+      <ion-radio-group formControlName="inssprevisto">
+        <ion-list-header>
+          <ion-label>INSS previsto na aposentadoria</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label>Sim</ion-label>
+          <ion-radio  slot="start" value="sim" name="sim" checked></ion-radio>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Não</ion-label>
+          <ion-radio slot="start" value="nao" name="nao"></ion-radio>
+        </ion-item>
+        
+      </ion-radio-group>
+      
+      
+      <ion-item *ngIf="estadocivil == 'Casado'">
+        <ion-label position="floating">Profissão atual do Cônjuge </ion-label>
+        <ion-input formControlName="profissaoatualdoconjuge" type="text"></ion-input>
+      </ion-item>
+      
+      <ion-item *ngIf="estadocivil == 'Casado'">
+        <ion-label position="floating">Remuneração líquida atual do Cônjuge</ion-label>
+        <ion-input  formControlName="remuneracaoliquidadoconjuge" type="number"></ion-input>
+      </ion-item>
+      
+      <ion-item *ngIf="estadocivil == 'Casado'">
+        <ion-textarea formControlName="outrasfontesderendadoconjuge" rows="6" cols="20" placeholder="Outras fontes de renda do Cônjuge"></ion-textarea>
+      </ion-item>
+      
+      <ion-radio-group formControlName="inssprevistoconjuge" *ngIf="estadocivil == 'Casado'">
+        <ion-list-header>
+          <ion-label>INSS previsto na aposentadoria do Cônjuge</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label>Sim</ion-label>
+          <ion-radio slot="start" value="sim" name="sim" checked></ion-radio>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Não</ion-label>
+          <ion-radio slot="start" value="nao" name="nao"></ion-radio>
+        </ion-item>
+        
+      </ion-radio-group>
+    </ion-card>
+  </ion-item-group>
+  
+  <ion-item-group>
+    <ion-card>
+      <ion-item-divider color="primary">
+        <ion-label>Dados Financeiros</ion-label>
+      </ion-item-divider>
+      
+      <ion-item>
+        <ion-label position="floating">Qual a capacidade de poupar hoje?</ion-label>
+        <ion-input formControlName="capacidadedepoupar" type="number"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Estimativa de Despesa Mensal?</ion-label>
+        <ion-input formControlName="estimativadedespesa" type="number"></ion-input>
+      </ion-item>
+      
+      <ion-radio-group formControlName="tipodedeclaracaodeimpostoderenda">
+        <ion-list-header>
+          <ion-label>Declaração imposto de renda</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label>Completa</ion-label>
+          <ion-radio  slot="start" value="sim" name="Completa" checked></ion-radio>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Simplificada</ion-label>
+          <ion-radio slot="start" value="nao" name="Simplificada"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      
+      <ion-item-divider color="secondary">
+        <ion-label>Bens Imóveis</ion-label>
+      </ion-item-divider>
+      
+      <ion-item>
+        <ion-textarea formControlName="bensimoveis" rows="6" cols="20"
+        placeholder="(casas, apartamentos, terrenos, loteamentos, comércios, etc.)Sempre considerando 'VALOR TOTAL (R$), VALOR PAGO (R$) e SALDO DEVEDOR (R$)'.">
+      </ion-textarea>
+    </ion-item>
+    
+    <ion-item-divider color="secondary">
+      <ion-label>Bens Móveis</ion-label>
+    </ion-item-divider>
+    
+    <ion-item>
+      <ion-textarea formControlName="bensmoveis" rows="6" cols="20"
+      placeholder="(automóveis, motocicletas, embarcações, etc.) Sempre considerando 'VALOR TOTAL (R$), VALOR PAGO (R$) e SALDO DEVEDOR (R$)'.">
+    </ion-textarea>
+  </ion-item>
+  
+  <ion-item-divider color="secondary">
+    <ion-label>Aplicações Financeiras & Previdência</ion-label>
+  </ion-item-divider>
+  
+  <ion-item>
+    <ion-textarea formControlName="aplicacoesfinanceiras" rows="6" cols="20"
+    placeholder="(conta corrente, poupança, CDB, fundos de investimento, planos de previdência, FGTS, etc.) Sempre considerando 'VALOR TOTAL (R$), VALOR PAGO (R$) e SALDO DEVEDOR (R$)'.">
+  </ion-textarea>
+</ion-item>
+</ion-card>
+</ion-item-group>
+
+  
+  <ion-item-group>
+    <ion-card>
+      <ion-item-divider color="primary">
+        <ion-label>Projetos de Vida</ion-label>
+      </ion-item-divider>
+      
+      <ion-item-divider color="secondary">
+        <ion-label>Quais são os projetos de curto prazo (1-2 anos)</ion-label>
+      </ion-item-divider>
+      
+      <ion-item>
+        <ion-textarea formControlName="projetosdevidacurtoprazo" rows="6" cols="20" placeholder="descrição, valor e previsão de realização">
+        </ion-textarea>
+      </ion-item>
+      
+      <ion-item-divider color="secondary">
+        <ion-label>Quais são os projetos de médio prazo (3-4 anos)</ion-label>
+      </ion-item-divider>
+      
+      <ion-item>
+        <ion-textarea formControlName="projetosdevidamedioprazo" rows="6" cols="20" placeholder="descrição, valor e previsão de realização">
+        </ion-textarea>
+      </ion-item>
+      
+      <ion-item-divider color="secondary">
+        <ion-label>Quais são os projetos de longo prazo (5-6 anos)</ion-label>
+      </ion-item-divider>
+      
+      <ion-item>
+        <ion-textarea formControlName="projetosdevidalongoprazo" rows="6" cols="20" placeholder="descrição, valor e previsão de realização">
+        </ion-textarea>
+      </ion-item>
+      
+      
+    </ion-card>
+  </ion-item-group>
+  
+  <ion-item-group>
+    <ion-card>
+      <ion-item-divider color="primary">
+        <ion-label>Independência Financeira</ion-label>
+      </ion-item-divider>
+      
+      <ion-item>
+        <ion-label position="floating">Qual a idade pretende se "aposentar"?</ion-label>
+        <ion-input formControlName="idadeseaposentar" type="number"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Com qual quantia mensal pretende se aposentar?</ion-label>
+        <ion-input formControlName="quantiamensalpretendeseaposentar" type="number"></ion-input>
+      </ion-item>
+      
+      <ion-item-divider color="secondary">
+        <ion-label>Quais bens pretende ter quando se aposentar?</ion-label>
+      </ion-item-divider>
+      
+      <ion-item>
+        <ion-textarea formControlName="bensaoseaposentar" rows="6" cols="20" placeholder="Qual o valor de cada um dos bens?, Exe: Casa: 200 Mil">
+        </ion-textarea>
+      </ion-item>
+    </ion-card>
+  </ion-item-group>
+  
+  <ion-item>
+    <ion-button expand="block" type="submit">salvar</ion-button>
+  </ion-item>
+</form>
+</ion-content>

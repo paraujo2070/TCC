@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conversas</ion-title>
+  </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content>
+        <h6 align-self-center>Atualizando</h6>
+      </ion-refresher-content>
+    </ion-refresher>
+
+  <form [formGroup]="authform" (submit)="onSubmit()">
+
+    <ion-item>
+      <ion-icon name="md-contact" color="primary" slot="start"></ion-icon>
+      <ion-label position="floating" >Username</ion-label>
+      <ion-input formControlName="username"></ion-input>
+    </ion-item>
+    
+    <ion-button expand="block" type="submit" [disabled]="authform.invalid">Conversar</ion-button>
+  </form>
+
+
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios">
+      {{usuario}}
+    </ion-item>
+  </ion-list>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="presentModal()">
+      <ion-icon name="paper-plane"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

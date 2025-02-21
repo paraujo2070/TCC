@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="TituloCadastro">Cadastre-se</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <h1 text-center>
+        <img id="ImagemCadastro" src="../../assets/cadastro.png" class="icon-7em" style="display:inline-block" />
+        
+      </h1>
+
+  <ion-grid>
+
+    <form [formGroup]="authform" (submit)="onSubmit()">
+
+      <ion-item>
+          <ion-icon name="md-contact" color="primary" slot="start"></ion-icon>
+        <ion-label position="floating">Nome Completo</ion-label>
+        <ion-input type="text" formControlName="nome" autofocus="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="md-person" color="primary" slot="start"></ion-icon>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="md-mail" color="primary" slot="start"></ion-icon>
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="email" formControlName="email" inputmode="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="md-lock" color="primary" slot="start"></ion-icon>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" formControlName="senha"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="md-lock" color="primary" slot="start"></ion-icon>
+        <ion-label position="floating">Confirme sua senha</ion-label>
+        <ion-input type="password" formControlName="confirmSenha"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" [disabled]="authform.invalid">Cadastrar</ion-button>
+    </form>
+
+
+  </ion-grid>
+
+
+</ion-content>

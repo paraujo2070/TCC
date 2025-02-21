@@ -1,0 +1,25 @@
+<ion-content id="pagLogin">
+  <h1 text-center>
+    <img id="imagemLogin" src="../../assets/logo.jpg" class="icon-7em" style="display:inline-block" />
+    <ion-title id="TituloLogin">Planejamento Financeiro</ion-title>
+  </h1>
+  <form [formGroup]="authform" (submit)="onSubmit()">
+    <ion-item>
+        <ion-label position="floating">Digite seu E-mail</ion-label>
+      <ion-icon name="md-mail" color="primary" slot="start"></ion-icon>
+      <ion-input type="email" formControlName="email" inputmode="email"
+        autofocus="true"></ion-input>
+      <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('required')">Obrigatorio</ion-note>
+      <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('email')">Email invalido</ion-note>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Digite sua Senha:</ion-label>
+      <ion-icon name="lock" color="primary" slot="start"></ion-icon>
+      <ion-input type="password"formControlName="senha"></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" [disabled]="authform.invalid">Login</ion-button>
+  </form>
+  <ion-button expand="block" fill="clear" routerLink="/cadastrese">Criar conta</ion-button>
+  <ion-button expand="block" fill="clear" routerLink="/recuperarsenha">Esqueceu a Senha</ion-button>
+</ion-content>

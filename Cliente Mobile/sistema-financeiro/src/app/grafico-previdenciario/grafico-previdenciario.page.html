@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="TituloCadastro">Grafico</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title  id="middle" color="primary">Atenção</ion-card-title>
+        </ion-card-header>
+  
+        <ion-card-content id="letra" color="primary" class="ion-text-justify">
+            Para  melhor visualização do gráfico por favor colocar o celular na horizontal.
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>
+              <ion-card-title color="primary">Contribuição para a previdência:</ion-card-title>
+          </ion-card-header>
+     
+    <div class="testeJJ" style="display: block">
+      <canvas baseChart 
+        [labels]="barChartLabels" 
+        [datasets]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+      </ion-card>
+</ion-content>

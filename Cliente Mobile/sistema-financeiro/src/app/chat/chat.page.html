@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{this.username}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div>
+    <ion-card>
+      <ion-card-content *ngFor="let dados of dadosListar">
+        {{dados}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="listarConversas()" >
+      <ion-icon name="refresh"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <form [formGroup]="authform" (submit)="onSubmit()">
+
+    <ion-item>
+
+      <ion-item>
+        <!-- <ion-label position="floating">Description</ion-label> -->
+        <ion-input placeholder="Digite a Mensagem" formControlName="mensagem"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" [disabled]="authform.invalid" color="dark" slot="end">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+
+  </form>
+</ion-footer>

@@ -1,0 +1,194 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Relatório </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-grid *ngFor="let dados of dadosListar">
+
+    <ion-item-divider color="primary">
+      <ion-label>Usuários atuais</ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <h6>{{dados.nome}}</h6>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Data de Nascimento</ion-label>
+      <h6>{{dados.datadenascimento}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Expectativa de Vida em Anos</ion-label>
+      <h6>{{dados.expectativadevida}}</h6>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Nome do Cônjuge</ion-label>
+      <h6>{{dados.nomedoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Data de Nascimento do Cônjuge</ion-label>
+      <h6>{{dados.datadenascimentodoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Expectativa de Vida do Cônjuge em Anos</ion-label>
+      <h6>{{dados.expectativadevidadoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Expectativa de Vida do Cônjuge em Anos</ion-label>
+      <h6>{{dados.expectativadevidadoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tem Filhos?</ion-label>
+      <h6>{{dados.temfilhos}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Quantos filhos</ion-label>
+      <h6>{{dados.quantos}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Profissão atual</ion-label>
+      <h6>{{dados.profissaoatual}}</h6>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Estado Civil</ion-label>
+      <h6>{{dados.estadocivil}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Expectativa de Vida</ion-label>
+      <h6>{{dados.expectativadevida}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nome do Conjuge</ion-label>
+      <h6>{{dados.nomedoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Data de Nascimento do conjuge</ion-label>
+      <h6>{{dados.datadenascimentodoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Expectativa de vida do conjuge</ion-label>
+      <h6>{{dados.expectativadevidadoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Profissão atual</ion-label>
+      <h6>{{dados.profissaoatual}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Remuneração liquida</ion-label>
+      <h6>{{dados.remuneracaoliquida}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Outras fonte de renda</ion-label>
+      <h6>{{dados.outrasfontesderenda}}</h6>
+    </ion-item>
+    <ion-item>
+      <ion-label>INSS previsto</ion-label>
+      <h6>{{dados.inssprevisto}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Profissão atual do conjuge</ion-label>
+      <h6>{{dados.profissaoatualdoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Remuneração líquida atual do Cônjuge</ion-label>
+      <h6>{{dados.remuneracaoliquidadoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Outras fontes de renda do Cônjuge</ion-label>
+      <h6>{{dados.outrasfontesderendadoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>INSS previsto conjuge</ion-label>
+      <h6>{{dados.inssprevistoconjuge}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Capacidade de poupar hoje</ion-label>
+      <h6>{{dados.capacidadedepoupar}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Estimativa de despesa</ion-label>
+      <h6>{{dados.estimativadedespesa}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Declaração imposto de renda</ion-label>
+      <h6>{{dados.tipodedeclaracaodeimpostoderenda}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bens Imóveis</ion-label>
+      <h6>{{dados.bensimoveis}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bens Móveis</ion-label>
+      <h6>{{dados.bensmoveis}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Aplicações financeiras</ion-label>
+      {{dados.aplicacoesfinanceiras}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Projetos de Vida de curto prazo</ion-label>
+      {{dados.projetosdevidacurtoprazo}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Projetos de Vida de médio prazo</ion-label>
+      {{dados.projetosdevidamedioprazo}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Projetos de Vida de longo prazo</ion-label>
+      {{dados.projetosdevidalongoprazo}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>idade pretende se aposentar</ion-label>
+      {{dados.idadeseaposentar}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>quantia mensal pretende se aposentar</ion-label>
+      {{dados.quantiamensalpretendeseaposentar}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>bens pretende ter quando se aposentar</ion-label>
+      {{dados.bensaoseaposentar}}
+    </ion-item>
+
+  </ion-grid>
+
+</ion-content>

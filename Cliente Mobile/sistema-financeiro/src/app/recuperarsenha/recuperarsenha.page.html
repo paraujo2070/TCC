@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/login"></ion-back-button>
+      </ion-buttons>
+      <ion-title id="informativo">Recuperar Senha</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <h1 text-center>
+        <img id="imagemRecuperarSenha" src="../../assets/logo.jpg" class="icon-7em" style="display:inline-block" />
+        <ion-label id="informativo">
+        Para prosseguir, informe seu email abaixo:
+        </ion-label>
+      </h1>
+
+  <ion-grid>
+
+    <form [formGroup]="authform" (submit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Digite seu E-mail</ion-label>
+        <ion-icon name="md-mail" color="primary" slot="start"></ion-icon>
+        <ion-input type="email" formControlName="email" inputmode="email"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" type="submit" [disabled]="authform.invalid">Enviar</ion-button>
+    </form>
+      
+  </ion-grid>
+
+</ion-content>
